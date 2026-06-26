@@ -3,18 +3,50 @@ study.py — Lightweight study system for CathBot
 Gemini: extraction only. All quizzes come from stored JSON.
 """
 
-import os, json, random, re, requests, threading
+import os, json, random, re, requests, threading, time
+from typing import Any, Optional, Callable
 
 STUDY_DIR = "study_data"
 os.makedirs(STUDY_DIR, exist_ok=True)
 
-_bot = None
-_ai  = None
+# Typed as Any (not left implicitly None) so Pylance doesn't narrow these to
+# NoneType and flag every _bot.reply_to(...) / _ai.models... call below as
+# "not a known attribute of None". They're still None until init_study()
+# runs — that's a real runtime concern, just not one a static type checker
+# can verify across module boundaries, so _require_init() below checks it
+# explicitly instead.
+_bot: Any = None
+_ai: Any = None
+_ai_clients: list = []
 
-def init_study(bot_instance, ai_instance):
-    global _bot, _ai
+_get_db: Optional[Callable[[], dict]] = None  # optional live-DB getter, set via init_study
+
+# Models to try, in order. First is fast/cheap; we fall back if it errors or
+# returns something unparsable (e.g. quota hit, 5xx, empty response).
+_EXTRACT_MODELS = ["gemini-2.0-flash", "gemini-2.5-flash"]
+_OCR_MODELS     = ["gemini-2.0-flash", "gemini-2.5-flash"]
+
+# Chunk size for the knowledge-extraction prompt. Notes longer than this get
+# split into multiple chunks and extracted separately, then merged, instead
+# of being silently truncated.
+_CHUNK_CHARS = 6000
+
+# Lower confidence floor. Gemini only emits 99 when it's fully certain;
+# legitimate partial/paraphrased extractions often score lower. Anything
+# below this is still discarded as too unreliable to store.
+_MIN_CONFIDENCE = 70
+
+def init_study(bot_instance, ai_instance, ai_clients_list=None, db_getter=None):
+    global _bot, _ai, _ai_clients, _get_db
     _bot = bot_instance
     _ai  = ai_instance
+    _ai_clients = ai_clients_list if ai_clients_list else ([ai_instance] if ai_instance else [])
+    _get_db = db_getter
+
+
+def _require_init():
+    if _bot is None or _ai is None:
+        raise RuntimeError("study.py: init_study(bot, ai) must be called before use")
 
 # ─── JSON I/O ────────────────────────────────────────────────────────────────
 
@@ -81,7 +113,8 @@ Return ONLY valid JSON — no markdown fences, no explanation:
 
 Strict rules:
 - Extract ONLY information explicitly present in the notes. Never invent or assume.
-- Set confidence=99 only when certain. Lower if text was unclear or partial.
+- Set confidence=99 only when certain. Lower if text was unclear or partial,
+  but still extract it — partial/uncertain entries are wanted, just scored honestly.
 - subjects must be specific named terms, not vague phrases.
 - descriptions must come directly from source text.
 - Detect all numbered/bulleted lists and save as enumerations.
@@ -90,6 +123,63 @@ Strict rules:
 NOTES:
 """
 
+def _call_gemini(models, **kwargs):
+    """Try each (client, model) combination until one returns a usable response."""
+    last_err = None
+    clients = _ai_clients if _ai_clients else ([_ai] if _ai else [])
+    for client in clients:
+        for model in models:
+            try:
+                resp = client.models.generate_content(model=model, **kwargs)
+                if resp and (resp.text or "").strip():
+                    return resp, model
+            except Exception as e:
+                last_err = e
+                print(f"[study] client={id(client)} model={model} failed: {e}")
+                continue
+    if last_err:
+        raise last_err
+    raise RuntimeError("All models returned empty responses")
+    """Try each model in order until one returns a usable response."""
+    last_err = None
+    for model in models:
+        try:
+            resp = _ai.models.generate_content(model=model, **kwargs)
+            if resp and (resp.text or "").strip():
+                return resp, model
+        except Exception as e:
+            last_err = e
+            print(f"[study] model {model} failed: {e}")
+            continue
+    if last_err:
+        raise last_err
+    raise RuntimeError("All models returned empty responses")
+
+def _chunk_text(text: str, size: int) -> list:
+    """Split on paragraph boundaries where possible, never silently dropping tail."""
+    if len(text) <= size:
+        return [text]
+    chunks, start = [], 0
+    while start < len(text):
+        end = min(start + size, len(text))
+        if end < len(text):
+            split_at = text.rfind("\n", start, end)
+            if split_at > start:
+                end = split_at
+        chunks.append(text[start:end])
+        start = end
+    return chunks
+
+def _load_db():
+    """Use the live in-memory DB if init_study() was given a getter; else read disk."""
+    if _get_db is not None:
+        try:
+            return _get_db()
+        except Exception as e:
+            print(f"[study] db_getter failed, falling back to disk: {e}")
+    with open("bot_database.json") as f:
+        return json.load(f)
+
 def extract_knowledge(title: str, chat_id: int):
     """OCR uploaded photos, extract structured knowledge, save to study_data/."""
     if _bot is None or _ai is None:
@@ -97,8 +187,7 @@ def extract_knowledge(title: str, chat_id: int):
         return
 
     try:
-        with open("bot_database.json") as f:
-            db = json.load(f)
+        db = _load_db()
     except Exception as e:
         print(f"[study] Cannot read bot_database.json: {e}")
         return
@@ -109,47 +198,78 @@ def extract_knowledge(title: str, chat_id: int):
     if not notes:
         return
 
+    # Guard against contamination: commands or empty stubs that ended up
+    # stored as "text" notes shouldn't be fed into the extractor.
+    def _is_real_text(n):
+        c = n.get("content", "").strip()
+        return bool(c) and not c.startswith("/")
+
+    photo_notes = [n for n in notes if n.get("type") == "photo"]
+    text_notes  = [n for n in notes if n.get("type") == "text" and _is_real_text(n)]
+
+    total = len(photo_notes) + len(text_notes)
+    done = 0
     combined_text = ""
 
-    for note in notes:
-        ntype = note.get("type", "")
-        if ntype == "photo":
-            try:
-                fi  = _bot.get_file(note["file_id"])
-                url = f"https://api.telegram.org/file/bot{_bot.token}/{fi.file_path}"
-                img = requests.get(url, timeout=15).content
-                from google.genai import types as gt
-                resp = _ai.models.generate_content(
-                    model="gemini-2.5-flash",
-                    contents=[
-                        gt.Part.from_bytes(data=img, mime_type="image/jpeg"),
-                        gt.Part.from_text(
-                            "Extract all text from this image exactly as written. "
-                            "Return only the raw text, no formatting."
-                        )
-                    ]
-                )
-                combined_text += "\n" + (resp.text or "")
-            except Exception as e:
-                print(f"[study] OCR failed for note {note.get('id')}: {e}")
-        elif ntype == "text":
-            combined_text += "\n" + note.get("content", "")
+    if total > 1:
+        _bot.send_message(chat_id, f"📚 Processing {total} note(s) for '{title}'… (0/{total})")
+
+    for note in photo_notes:
+        try:
+            fi  = _bot.get_file(note["file_id"])
+            url = f"https://api.telegram.org/file/bot{_bot.token}/{fi.file_path}"
+            img = requests.get(url, timeout=15).content
+            from google.genai import types as gt
+            resp, used_model = _call_gemini(
+                _OCR_MODELS,
+                contents=[
+                    gt.Part.from_bytes(data=img, mime_type="image/jpeg"),
+                    gt.Part.from_text(
+                        text="Extract all text from this image exactly as written. "
+                             "Return only the raw text, no formatting."
+                    )
+                ]
+            )
+            combined_text += "\n" + (resp.text or "")
+        except Exception as e:
+            print(f"[study] OCR failed for note {note.get('id')}: {e}")
+        finally:
+            done += 1
+            if total > 1:
+                _bot.send_message(chat_id, f"📚 OCR progress: {done}/{total}")
+
+    for note in text_notes:
+        combined_text += "\n" + note.get("content", "")
+        done += 1
+        if total > 1 and photo_notes:
+            _bot.send_message(chat_id, f"📚 Processing: {done}/{total}")
 
     if not combined_text.strip():
         _bot.send_message(chat_id, f"⚠️ [Study] No text could be extracted from '{title}'.")
         return
 
-    try:
-        resp = _ai.models.generate_content(
-            model="gemini-2.5-flash",
-            contents=_PROMPT + combined_text[:8000]
-        )
-        raw = (resp.text or "").strip()
-        raw = re.sub(r'^```(?:json)?\n?', '', raw)
-        raw = re.sub(r'\n?```$', '', raw).strip()
-        extracted = json.loads(raw)
-    except Exception as e:
-        print(f"[study] Extraction failed: {e}")
+    chunks = _chunk_text(combined_text, _CHUNK_CHARS)
+    n_chunks = len(chunks)
+    if n_chunks > 1:
+        _bot.send_message(chat_id, f"📚 Extracting knowledge — {n_chunks} chunk(s) (0/{n_chunks})")
+
+    all_knowledge, all_enums = [], []
+    for i, chunk in enumerate(chunks, 1):
+        try:
+            resp, used_model = _call_gemini(_EXTRACT_MODELS, contents=_PROMPT + chunk)
+            raw = (resp.text or "").strip()
+            raw = re.sub(r'^```(?:json)?\n?', '', raw)
+            raw = re.sub(r'\n?```$', '', raw).strip()
+            extracted = json.loads(raw)
+            all_knowledge.extend(extracted.get("knowledge", []))
+            all_enums.extend(extracted.get("enumerations", []))
+        except Exception as e:
+            print(f"[study] Extraction failed on chunk {i}/{n_chunks}: {e}")
+            # Keep going with other chunks rather than failing the whole note.
+        if n_chunks > 1:
+            _bot.send_message(chat_id, f"📚 Extracting knowledge — ({i}/{n_chunks})")
+
+    if not all_knowledge and not all_enums:
         _bot.send_message(chat_id, f"⚠️ [Study] Knowledge extraction failed for '{title}'. Try re-uploading.")
         return
 
@@ -157,8 +277,8 @@ def extract_knowledge(title: str, chat_id: int):
     existing = {k["subject"].lower() for k in data["knowledge"]}
     added = 0
 
-    for entry in extracted.get("knowledge", []):
-        if (entry.get("confidence", 0) >= 95
+    for entry in all_knowledge:
+        if (entry.get("confidence", 0) >= _MIN_CONFIDENCE
                 and entry.get("subject", "").strip()
                 and entry.get("description", "").strip()
                 and entry.get("source", "").strip()
@@ -168,7 +288,7 @@ def extract_knowledge(title: str, chat_id: int):
             added += 1
 
     enums_added = 0
-    for en in extracted.get("enumerations", []):
+    for en in all_enums:
         if en.get("title") and en.get("items") and len(en["items"]) >= 2:
             data["enumerations"].append(en)
             enums_added += 1
@@ -200,9 +320,13 @@ def _mark_used(data: dict, subject: str):
         h.append(subject)
 
 def _pick_unused(data: dict):
+    """Returns a random unused knowledge entry, or None if there's no
+    knowledge at all. Callers MUST check for None before using the result."""
     subjects = [k["subject"] for k in data["knowledge"]]
+    if not subjects:
+        return None
     used = set(data["progress"]["history"])
-    if subjects and all(s in used for s in subjects):
+    if all(s in used for s in subjects):
         data["progress"]["history"] = []
         used = set()
     pool = [k for k in data["knowledge"] if k["subject"] not in used]
@@ -235,19 +359,23 @@ def cmd_flashcard(message, title: str, reverse: bool = False):
         idx = 0
         batch = entries[:20]
 
-    lines = [
-        f"📇 *Flashcards — {_e(title)}* \\({idx+1}–{idx+len(batch)} of {len(entries)}\\)",
-        "_Tap a spoiler to reveal the answer\\._\n"
-    ]
+    data["progress"]["flashcard_index"] = (idx + len(batch)) % len(entries)
+    save_study(title, data)
+
+    chat_id = message.chat.id
+
+    header = (
+        f"📇 *Flashcards — {_e(title)}* \\({idx+1}–{idx+len(batch)} of {len(entries)}\\)\n"
+        "_Tap a spoiler to reveal the answer\\._"
+    )
+    _bot.send_message(chat_id, header, parse_mode="MarkdownV2")
+
     for i, e in enumerate(batch, idx + 1):
         q = e["description"] if reverse else e["subject"]
         a = e["subject"]    if reverse else e["description"]
-        lines.append(f"*{i}\\. {_e(q)}*")
-        lines.append(f"||{_e(_trunc(a))}||\n")
+        card = f"*{i}\\. {_e(q)}*\n||{_e(_trunc(a))}||"
+        _bot.send_message(chat_id, card, parse_mode="MarkdownV2")
 
-    data["progress"]["flashcard_index"] = (idx + len(batch)) % len(entries)
-    save_study(title, data)
-    _bot.reply_to(message, "\n".join(lines), parse_mode="MarkdownV2")
 
 # ─── Multiple Choice ─────────────────────────────────────────────────────────
 

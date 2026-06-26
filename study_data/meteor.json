@@ -1,0 +1,668 @@
+{
+  "knowledge": [
+    {
+      "subject": "Radiation",
+      "description": "the transfer of energy through electromagnetic waves and does not require a physical medium to travel",
+      "type": "Definition",
+      "chapter": "Electromagnetic Mechanics",
+      "keywords": [
+        "energy transfer",
+        "electromagnetic waves",
+        "physical medium"
+      ],
+      "source": "Radiation is the transfer of energy through electromagnetic waves and does not require a physical medium to travel.",
+      "confidence": 99
+    },
+    {
+      "subject": "Electromagnetic waves",
+      "description": "consist of oscillating electric and magnetic fields that are perpendicular to each other and to the direction of propagation",
+      "type": "Concept",
+      "chapter": "Electromagnetic Mechanics",
+      "keywords": [
+        "oscillating fields",
+        "electric fields",
+        "magnetic fields",
+        "perpendicular",
+        "propagation"
+      ],
+      "source": "Electromagnetic waves consist of oscillating electric and magnetic fields that are perpendicular to each other and to the direction of propagation.",
+      "confidence": 99
+    },
+    {
+      "subject": "Radiation behavior",
+      "description": "exhibits both wave-like and particle-like behavior",
+      "type": "Fact",
+      "chapter": "Electromagnetic Mechanics",
+      "keywords": [
+        "wave-like",
+        "particle-like"
+      ],
+      "source": "Radiation exhibits both wave-like and particle-like behavior, with the particle form known as photons.",
+      "confidence": 99
+    },
+    {
+      "subject": "Photons",
+      "description": "the particle form of radiation",
+      "type": "Definition",
+      "chapter": "Electromagnetic Mechanics",
+      "keywords": [
+        "radiation",
+        "particle form"
+      ],
+      "source": "Radiation exhibits both wave-like and particle-like behavior, with the particle form known as photons.",
+      "confidence": 99
+    },
+    {
+      "subject": "Ultraviolet radiation wavelength range",
+      "description": "from 0.01 to 0.4 \u00b5m",
+      "type": "Fact",
+      "chapter": "Electromagnetic Mechanics",
+      "keywords": [
+        "UV",
+        "wavelength",
+        "range"
+      ],
+      "source": "Ultraviolet radiation spans wavelengths from 0.01 to 0.4 \u00b5m.",
+      "confidence": 99
+    },
+    {
+      "subject": "Visible light wavelength range",
+      "description": "from 0.4 to 0.7 \u00b5m",
+      "type": "Fact",
+      "chapter": "Electromagnetic Mechanics",
+      "keywords": [
+        "visible light",
+        "wavelength",
+        "range"
+      ],
+      "source": "Visible light spans 0.4 to 0.7 \u00b5m.",
+      "confidence": 99
+    },
+    {
+      "subject": "Thermal infrared radiation wavelength range",
+      "description": "from 0.7 to 100 \u00b5m",
+      "type": "Fact",
+      "chapter": "Electromagnetic Mechanics",
+      "keywords": [
+        "thermal infrared",
+        "wavelength",
+        "range"
+      ],
+      "source": "Thermal infrared radiation spans 0.7 to 100 \u00b5m.",
+      "confidence": 99
+    },
+    {
+      "subject": "Formula c = \u03bbf",
+      "description": "c = \u03bbf",
+      "type": "Formula",
+      "chapter": "Electromagnetic Mechanics",
+      "keywords": [
+        "speed of light",
+        "wavelength",
+        "frequency"
+      ],
+      "source": "c = \u03bbf",
+      "confidence": 99
+    },
+    {
+      "subject": "Formula E = hf",
+      "description": "E = hf",
+      "type": "Formula",
+      "chapter": "Electromagnetic Mechanics",
+      "keywords": [
+        "energy",
+        "Planck's constant",
+        "frequency"
+      ],
+      "source": "E = hf",
+      "confidence": 99
+    },
+    {
+      "subject": "Relationship between wavelength, frequency, and energy",
+      "description": "Shorter wavelengths correspond to higher frequencies and greater energy",
+      "type": "Fact",
+      "chapter": "Electromagnetic Mechanics",
+      "keywords": [
+        "wavelength",
+        "frequency",
+        "energy",
+        "relationship"
+      ],
+      "source": "Shorter wavelengths correspond to higher frequencies and greater energy.",
+      "confidence": 99
+    },
+    {
+      "subject": "Sun's peak emission",
+      "description": "emits primarily high-energy shortwave radiation with peak emission near 0.5 \u00b5m",
+      "type": "Fact",
+      "chapter": "Electromagnetic Mechanics",
+      "keywords": [
+        "Sun",
+        "shortwave radiation",
+        "high-energy",
+        "peak emission",
+        "0.5 \u00b5m"
+      ],
+      "source": "The Sun emits primarily high-energy shortwave radiation with peak emission near 0.5 \u00b5m, while Earth emits lower-energy longwave infrared radiation with peak emission near 10 \u00b5m.",
+      "confidence": 99
+    },
+    {
+      "subject": "Earth's peak emission",
+      "description": "emits lower-energy longwave infrared radiation with peak emission near 10 \u00b5m",
+      "type": "Fact",
+      "chapter": "Electromagnetic Mechanics",
+      "keywords": [
+        "Earth",
+        "longwave infrared radiation",
+        "lower-energy",
+        "peak emission",
+        "10 \u00b5m"
+      ],
+      "source": "The Sun emits primarily high-energy shortwave radiation with peak emission near 0.5 \u00b5m, while Earth emits lower-energy longwave infrared radiation with peak emission near 10 \u00b5m.",
+      "confidence": 99
+    },
+    {
+      "subject": "Relationship between speed of light, wavelength, and frequency",
+      "description": "c = \u03bbf",
+      "type": "Formula",
+      "chapter": "Electromagnetic Mechanics",
+      "keywords": [
+        "speed of light",
+        "wavelength",
+        "frequency"
+      ],
+      "source": "The relationships between wavelength, frequency, and energy are described by: c = \u03bbf",
+      "confidence": 99
+    },
+    {
+      "subject": "Relationship between energy, Planck's constant, and frequency",
+      "description": "E = hf",
+      "type": "Formula",
+      "chapter": "Electromagnetic Mechanics",
+      "keywords": [
+        "energy",
+        "Planck's constant",
+        "frequency"
+      ],
+      "source": "E = hf",
+      "confidence": 99
+    },
+    {
+      "subject": "Wavelength, frequency, and energy relationship",
+      "description": "Shorter wavelengths correspond to higher frequencies and greater energy.",
+      "type": "Fact",
+      "chapter": "Electromagnetic Mechanics",
+      "keywords": [
+        "wavelength",
+        "frequency",
+        "energy"
+      ],
+      "source": "Shorter wavelengths correspond to higher frequencies and greater energy.",
+      "confidence": 99
+    },
+    {
+      "subject": "Sun's emission characteristics",
+      "description": "emits primarily high-energy shortwave radiation with peak emission near 0.5 \u00b5m.",
+      "type": "Fact",
+      "chapter": "Electromagnetic Mechanics",
+      "keywords": [
+        "Sun",
+        "shortwave radiation",
+        "peak emission",
+        "high-energy"
+      ],
+      "source": "The Sun emits primarily high-energy shortwave radiation with peak emission near 0.5 \u00b5m, while Earth emits lower-energy longwave infrared radiation with peak emission near 10 \u00b5m.",
+      "confidence": 99
+    },
+    {
+      "subject": "Earth's emission characteristics",
+      "description": "emits lower-energy longwave infrared radiation with peak emission near 10 \u00b5m.",
+      "type": "Fact",
+      "chapter": "Electromagnetic Mechanics",
+      "keywords": [
+        "Earth",
+        "longwave infrared radiation",
+        "peak emission",
+        "lower-energy"
+      ],
+      "source": "The Sun emits primarily high-energy shortwave radiation with peak emission near 0.5 \u00b5m, while Earth emits lower-energy longwave infrared radiation with peak emission near 10 \u00b5m.",
+      "confidence": 99
+    },
+    {
+      "subject": "Blackbody",
+      "description": "an ideal object that perfectly absorbs and emits radiation based solely on its temperature.",
+      "type": "Definition",
+      "chapter": "II. Fundamental Radiation Laws",
+      "keywords": [
+        "ideal object",
+        "absorbs",
+        "emits",
+        "temperature"
+      ],
+      "source": "A blackbody is an ideal object that perfectly absorbs and emits radiation based solely on its temperature.",
+      "confidence": 99
+    },
+    {
+      "subject": "Sun's approximate temperature",
+      "description": "6000 K",
+      "type": "Fact",
+      "chapter": "II. Fundamental Radiation Laws",
+      "keywords": [
+        "Sun",
+        "temperature",
+        "blackbody"
+      ],
+      "source": "The Sun, with an approximate temperature of 6000 K, and Earth, with an approximate temperature of 288 K, behave similarly to blackbodies.",
+      "confidence": 99
+    },
+    {
+      "subject": "Earth's approximate temperature",
+      "description": "288 K",
+      "type": "Fact",
+      "chapter": "II. Fundamental Radiation Laws",
+      "keywords": [
+        "Earth",
+        "temperature",
+        "blackbody"
+      ],
+      "source": "The Sun, with an approximate temperature of 6000 K, and Earth, with an approximate temperature of 288 K, behave similarly to blackbodies.",
+      "confidence": 99
+    },
+    {
+      "subject": "Planck's Law",
+      "description": "describes how the intensity of radiation varies with wavelength and temperature.",
+      "type": "Law",
+      "chapter": "II. Fundamental Radiation Laws",
+      "keywords": [
+        "intensity",
+        "radiation",
+        "wavelength",
+        "temperature"
+      ],
+      "source": "Planck's Law describes how the intensity of radiation varies with wavelength and temperature.",
+      "confidence": 99
+    },
+    {
+      "subject": "Wien's Displacement Law",
+      "description": "states that the wavelength of maximum emission decreases as temperature increases.",
+      "type": "Law",
+      "chapter": "II. Fundamental Radiation Laws",
+      "keywords": [
+        "wavelength",
+        "maximum emission",
+        "temperature"
+      ],
+      "source": "Wien's Displacement Law states that the wavelength of maximum emission decreases as temperature increases: \u03bbmax = 2897 / T",
+      "confidence": 99
+    },
+    {
+      "subject": "Wien's Displacement Law formula",
+      "description": "\u03bbmax = 2897 / T",
+      "type": "Formula",
+      "chapter": "II. Fundamental Radiation Laws",
+      "keywords": [
+        "maximum emission",
+        "wavelength",
+        "temperature"
+      ],
+      "source": "Wien's Displacement Law states that the wavelength of maximum emission decreases as temperature increases: \u03bbmax = 2897 / T",
+      "confidence": 99
+    },
+    {
+      "subject": "Stefan-Boltzmann Law",
+      "description": "states that the total energy emitted by a body is proportional to the fourth power of its absolute temperature.",
+      "type": "Law",
+      "chapter": "II. Fundamental Radiation Laws",
+      "keywords": [
+        "total energy",
+        "absolute temperature",
+        "fourth power"
+      ],
+      "source": "Stefan-Boltzmann Law states that the total energy emitted by a body is proportional to the fourth power of its absolute temperature: E = \u03c3T\u2074",
+      "confidence": 99
+    },
+    {
+      "subject": "Stefan-Boltzmann Law formula",
+      "description": "E = \u03c3T\u2074",
+      "type": "Formula",
+      "chapter": "II. Fundamental Radiation Laws",
+      "keywords": [
+        "total energy",
+        "absolute temperature",
+        "constant"
+      ],
+      "source": "Stefan-Boltzmann Law states that the total energy emitted by a body is proportional to the fourth power of its absolute temperature: E = \u03c3T\u2074",
+      "confidence": 99
+    },
+    {
+      "subject": "Kirchhoff's Law",
+      "description": "states that a material that is an efficient absorber at a particular wavelength is also an efficient emitter at that same wavelength.",
+      "type": "Law",
+      "chapter": "II. Fundamental Radiation Laws",
+      "keywords": [
+        "absorber",
+        "emitter",
+        "wavelength"
+      ],
+      "source": "Kirchhoff's Law states that a material that is an efficient absorber at a particular wavelength is also an efficient emitter at that same wavelength. Carbon dioxide is an example because it absorbs and re-emits infrared radiation.",
+      "confidence": 99
+    },
+    {
+      "subject": "Carbon dioxide as an example of Kirchhoff's Law",
+      "description": "absorbs and re-emits infrared radiation.",
+      "type": "Fact",
+      "chapter": "II. Fundamental Radiation Laws",
+      "keywords": [
+        "carbon dioxide",
+        "infrared radiation",
+        "absorber",
+        "emitter"
+      ],
+      "source": "Carbon dioxide is an example because it absorbs and re-emits infrared radiation.",
+      "confidence": 99
+    },
+    {
+      "subject": "Wavelength, frequency, and energy relationships",
+      "description": "Shorter wavelengths correspond to higher frequencies and greater energy.",
+      "type": "Fact",
+      "chapter": "Electromagnetic Mechanics",
+      "keywords": [
+        "wavelength",
+        "frequency",
+        "energy"
+      ],
+      "source": "Shorter wavelengths correspond to higher frequencies and greater energy.",
+      "confidence": 99
+    },
+    {
+      "subject": "Sun's radiation emission",
+      "description": "emits primarily high-energy shortwave radiation with peak emission near 0.5 \u00b5m",
+      "type": "Fact",
+      "chapter": "Electromagnetic Mechanics",
+      "keywords": [
+        "Sun",
+        "shortwave radiation",
+        "peak emission",
+        "0.5 \u00b5m"
+      ],
+      "source": "The Sun emits primarily high-energy shortwave radiation with peak emission near 0.5 \u00b5m, while Earth emits lower-energy longwave infrared radiation with peak emission near 10 \u00b5m.",
+      "confidence": 99
+    },
+    {
+      "subject": "Earth's radiation emission",
+      "description": "emits lower-energy longwave infrared radiation with peak emission near 10 \u00b5m",
+      "type": "Fact",
+      "chapter": "Electromagnetic Mechanics",
+      "keywords": [
+        "Earth",
+        "longwave infrared radiation",
+        "peak emission",
+        "10 \u00b5m"
+      ],
+      "source": "The Sun emits primarily high-energy shortwave radiation with peak emission near 0.5 \u00b5m, while Earth emits lower-energy longwave infrared radiation with peak emission near 10 \u00b5m.",
+      "confidence": 99
+    },
+    {
+      "subject": "Speed of light formula",
+      "description": "c = \u03bbf",
+      "type": "Formula",
+      "chapter": "Electromagnetic Mechanics",
+      "keywords": [
+        "c",
+        "wavelength",
+        "frequency"
+      ],
+      "source": "c = \u03bbf",
+      "confidence": 99
+    },
+    {
+      "subject": "Photon energy formula",
+      "description": "E = hf",
+      "type": "Formula",
+      "chapter": "Electromagnetic Mechanics",
+      "keywords": [
+        "E",
+        "Planck's constant",
+        "frequency"
+      ],
+      "source": "E = hf",
+      "confidence": 99
+    },
+    {
+      "subject": "Sun's blackbody approximation",
+      "description": "The Sun, with an approximate temperature of 6000 K, ... behave similarly to blackbodies.",
+      "type": "Fact",
+      "chapter": "Fundamental Radiation Laws",
+      "keywords": [
+        "Sun",
+        "6000 K",
+        "blackbody"
+      ],
+      "source": "The Sun, with an approximate temperature of 6000 K, and Earth, with an approximate temperature of 288 K, behave similarly to blackbodies.",
+      "confidence": 99
+    },
+    {
+      "subject": "Earth's blackbody approximation",
+      "description": "Earth, with an approximate temperature of 288 K, behave similarly to blackbodies.",
+      "type": "Fact",
+      "chapter": "Fundamental Radiation Laws",
+      "keywords": [
+        "Earth",
+        "288 K",
+        "blackbody"
+      ],
+      "source": "The Sun, with an approximate temperature of 6000 K, and Earth, with an approximate temperature of 288 K, behave similarly to blackbodies.",
+      "confidence": 99
+    },
+    {
+      "subject": "Carbon dioxide (Kirchhoff's Law example)",
+      "description": "absorbs and re-emits infrared radiation.",
+      "type": "Fact",
+      "chapter": "Fundamental Radiation Laws",
+      "keywords": [
+        "carbon dioxide",
+        "infrared radiation",
+        "absorbs",
+        "re-emits"
+      ],
+      "source": "Carbon dioxide is an example because it absorbs and re-emits infrared radiation.",
+      "confidence": 99
+    },
+    {
+      "subject": "Extinction",
+      "description": "the reduction of radiation through the combined effects of scattering and absorption.",
+      "type": "Definition",
+      "chapter": "Atmospheric Radiative Processes",
+      "keywords": [
+        "reduction of radiation",
+        "scattering",
+        "absorption"
+      ],
+      "source": "Extinction is the reduction of radiation through the combined effects of scattering and absorption.",
+      "confidence": 99
+    },
+    {
+      "subject": "Emission",
+      "description": "the release of radiation by matter into its surroundings.",
+      "type": "Definition",
+      "chapter": "Atmospheric Radiative Processes",
+      "keywords": [
+        "release of radiation",
+        "matter",
+        "surroundings"
+      ],
+      "source": "Emission is the release of radiation by matter into its surroundings.",
+      "confidence": 99
+    },
+    {
+      "subject": "Absorption (radiative process)",
+      "description": "removes radiant energy and converts it into internal heat.",
+      "type": "Process",
+      "chapter": "Atmospheric Radiative Processes",
+      "keywords": [
+        "radiant energy",
+        "internal heat"
+      ],
+      "source": "Absorption removes radiant energy and converts it into internal heat.",
+      "confidence": 99
+    },
+    {
+      "subject": "Absorptivity (\u03b1)",
+      "description": "The fraction absorbed",
+      "type": "Definition",
+      "chapter": "Atmospheric Radiative Processes",
+      "keywords": [
+        "fraction",
+        "absorption"
+      ],
+      "source": "The fraction absorbed is described by absorptivity (\u03b1).",
+      "confidence": 99
+    },
+    {
+      "subject": "Ozone absorption",
+      "description": "selectively absorbs ultraviolet radiation",
+      "type": "Fact",
+      "chapter": "Atmospheric Radiative Processes",
+      "keywords": [
+        "ozone",
+        "ultraviolet radiation",
+        "selective absorption"
+      ],
+      "source": "Ozone selectively absorbs ultraviolet radiation, while water vapor and carbon dioxide selectively absorb longwave infrared radiation.",
+      "confidence": 99
+    },
+    {
+      "subject": "Water vapor and carbon dioxide absorption",
+      "description": "selectively absorb longwave infrared radiation.",
+      "type": "Fact",
+      "chapter": "Atmospheric Radiative Processes",
+      "keywords": [
+        "water vapor",
+        "carbon dioxide",
+        "longwave infrared radiation",
+        "selective absorption"
+      ],
+      "source": "Ozone selectively absorbs ultraviolet radiation, while water vapor and carbon dioxide selectively absorb longwave infrared radiation.",
+      "confidence": 99
+    },
+    {
+      "subject": "Radiation emission by objects",
+      "description": "Every object above absolute zero emits radiation.",
+      "type": "Fact",
+      "chapter": "Atmospheric Radiative Processes",
+      "keywords": [
+        "absolute zero",
+        "emits radiation"
+      ],
+      "source": "Every object above absolute zero emits radiation.",
+      "confidence": 99
+    },
+    {
+      "subject": "Emissivity (\u03b5)",
+      "description": "measures the efficiency of real materials emitting radiation compared to perfect blackbodies, which is generally less than 1.",
+      "type": "Definition",
+      "chapter": "Atmospheric Radiative Processes",
+      "keywords": [
+        "efficiency",
+        "real materials",
+        "blackbodies",
+        "less than 1"
+      ],
+      "source": "Real materials emit less efficiently than perfect blackbodies, and this efficiency is measured by emissivity (\u03b5), which is generally less than 1.",
+      "confidence": 99
+    },
+    {
+      "subject": "Scattering",
+      "description": "changes the direction of radiation without converting it into heat.",
+      "type": "Definition",
+      "chapter": "Atmospheric Radiative Processes",
+      "keywords": [
+        "direction of radiation",
+        "no heat conversion"
+      ],
+      "source": "Scattering changes the direction of radiation without converting it into heat.",
+      "confidence": 99
+    },
+    {
+      "subject": "Rayleigh scattering",
+      "description": "occurs with particles much smaller than the wavelength of light and strongly affects shorter wavelengths, producing blue skies and red sunsets.",
+      "type": "Concept",
+      "chapter": "Atmospheric Radiative Processes",
+      "keywords": [
+        "small particles",
+        "shorter wavelengths",
+        "blue skies",
+        "red sunsets"
+      ],
+      "source": "Rayleigh scattering occurs with particles much smaller than the wavelength of light and strongly affects shorter wavelengths, producing blue skies and red sunsets.",
+      "confidence": 99
+    },
+    {
+      "subject": "Mie scattering",
+      "description": "occurs with particles comparable in size to the wavelength and produces haze and whitish glare.",
+      "type": "Concept",
+      "chapter": "Atmospheric Radiative Processes",
+      "keywords": [
+        "comparable particles",
+        "wavelength",
+        "haze",
+        "whitish glare"
+      ],
+      "source": "Mie scattering occurs with particles comparable in size to the wavelength and produces haze and whitish glare.",
+      "confidence": 99
+    },
+    {
+      "subject": "Non-selective scattering",
+      "description": "occurs with particles much larger than the wavelength and affects all wavelengths equally, causing clouds to appear white.",
+      "type": "Concept",
+      "chapter": "Atmospheric Radiative Processes",
+      "keywords": [
+        "large particles",
+        "all wavelengths",
+        "white clouds"
+      ],
+      "source": "Non-selective scattering occurs with particles much larger than the wavelength and affects all wavelengths equally, causing clouds to appear white.",
+      "confidence": 99
+    }
+  ],
+  "enumerations": [
+    {
+      "title": "Wavelength spans of different radiation types",
+      "items": [
+        "Ultraviolet radiation spans wavelengths from 0.01 to 0.4 \u00b5m.",
+        "Visible light spans 0.4 to 0.7 \u00b5m.",
+        "Thermal infrared radiation spans 0.7 to 100 \u00b5m."
+      ],
+      "chapter": "Electromagnetic Mechanics"
+    },
+    {
+      "title": "Electromagnetic spectrum wavelength ranges",
+      "items": [
+        "Ultraviolet radiation: 0.01 to 0.4 \u00b5m",
+        "Visible light: 0.4 to 0.7 \u00b5m",
+        "Thermal infrared radiation: 0.7 to 100 \u00b5m"
+      ],
+      "chapter": "Electromagnetic Mechanics"
+    },
+    {
+      "title": "Types of Scattering",
+      "items": [
+        "Rayleigh scattering",
+        "Mie scattering",
+        "Non-selective scattering"
+      ],
+      "chapter": "Atmospheric Radiative Processes"
+    }
+  ],
+  "progress": {
+    "flashcard_index": 20,
+    "history": [
+      "Formula E = hf",
+      "Ultraviolet radiation wavelength range",
+      "Electromagnetic waves"
+    ],
+    "correct": 2,
+    "wrong": 0,
+    "enumeration_window": 0
+  }
+}

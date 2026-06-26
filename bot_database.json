@@ -1,80 +1,109 @@
 {
-    "notes": [
-        {
-            "id": 1782464280608,
-            "title": "time",
-            "chat_id": -1004233184353,
-            "type": "text",
-            "content": "Hello?"
-        },
-        {
-            "id": 1782464298392,
-            "title": "time",
-            "chat_id": -1004233184353,
-            "type": "text",
-            "content": "\ud83d\udc41\ufe0f\ud83d\udc44\ud83d\udc41\ufe0f"
-        },
-        {
-            "id": 1782464299422,
-            "title": "time",
-            "chat_id": -1004233184353,
-            "type": "text",
-            "content": "/donesaving"
-        },
-        {
-            "id": 1782464312441,
-            "title": "time",
-            "chat_id": -1004233184353,
-            "type": "text",
-            "content": "/donesaving"
-        },
-        {
-            "id": 1782464318870,
-            "title": "time",
-            "chat_id": -1004233184353,
-            "type": "text",
-            "content": "/donesaving@LawrenceCortesbot"
-        },
-        {
-            "id": 1782465598190,
-            "title": "meteor1",
-            "chat_id": -1004233184353,
-            "type": "text",
-            "content": "# STUDY NOTES: ATMOSPHERIC RADIATION & EARTH'S ENERGY BUDGET\n## I. ELECTROMAGNETIC MECHANICS\n * Radiation Mechanics: Energy transferred via electromagnetic (EM) waves through space or a material medium. It requires no physical medium to propagate.\n * Wave Architecture: Oscillating electric and magnetic fields traveling mutually perpendicular to each other and to the direction of propagation.\n * Dual Nature: Radiation operates simultaneously as continuous transverse waves and discrete particle packets (photons).\n * Spectrum Breakdown: Ultraviolet spans 0.01\u20130.4 \u00b5m, visible light spans 0.4\u20130.7 \u00b5m, and thermal infrared spans 0.7\u2013100 \u00b5m.\n * Inverse Energy Rules: Frequency (f), wavelength (\\lambda), and energy (E) are governed by c = \\lambda f and E = hf. Shorter wavelengths carry higher energy.\n * Solar vs. Terrestrial: The Sun emits high-energy shortwave radiation peaking at ~0.5 \u00b5m (visible light). Earth emits lower-energy longwave radiation peaking at ~10 \u00b5m (thermal infrared).\n## II. FUNDAMENTAL RADIATION LAWS\n * Blackbody Concept: A hypothetical perfect absorber and emitter that radiates energy based strictly on its temperature. The Sun (~6000 K) and Earth (~288 K) approximate blackbodies.\n * Planck\u2019s Law: Governs spectral radiance as a definitive function of wavelength and temperature.\n * Wien\u2019s Displacement Law: Dictates peak emission wavelength. Higher temperatures yield shorter peak wavelengths. Formula: \\lambda_{\\text{max}} = \\frac{2897}{T}.\n * Stefan-Boltzmann Law: Total emitted energy scales rapidly to the fourth power of absolute temperature. Formula: E = \\sigma T^4.\n * Kirchhoff\u2019s Law: High-efficiency absorbers at a specific wavelength act as high-efficiency emitters at that exact same wavelength. Example: CO\u2082 absorbs and re-emits infrared radiation.\n## III. ATMOSPHERIC RADIATIVE PROCESSES\n * Extinction vs. Emission: Atmospheric constituents alter radiation fields. Extinction (scattering + absorption) attenuates radiative intensity, while emission increases it.\n * Absorption Mechanics: Removes radiative energy and converts it to internal heat. Absorptivity (\\alpha) dictates the exact fraction absorbed.\n * Selective Atmospheric Absorbers: O\u2083 selectively absorbs shortwave UV. H\u2082O and CO\u2082 selectively absorb longwave infrared.\n * Emission Mechanics: All physical bodies above absolute zero (0 K) emit radiation. Real surfaces operate below blackbody efficiency, measured by emissivity (\\varepsilon < 1).\n * Scattering Mechanics: Redirection of radiation by atmospheric particles without converting the wave energy into heat.\n| Scattering Type | Particle Size vs. Wavelength | Wavelength Dependence | Observable Result |\n|---|---|---|---|\n| Rayleigh | Very small | Strong (targets short waves) | Blue skies, red sunsets |\n| Mie | Comparable | Weak | Haze, whitish pollution glare |\n| Non-selective | Large | None (equal across spectrum) | White clouds |\n## IV. INSOLATION & ALBEDO\n * Solar Constant: Incoming solar radiation arriving at the top of the atmosphere averages ~1361 W/m\u00b2.\n * Solar Composition: Incoming insolation arrives as 7% UV, 44% visible light, and 49% near-infrared.\n * Insolation Modulators: Surface intensity is dictated by the Solar Zenith Angle (lower sun angle = lower intensity per unit area), latitude, cloud cover, and seasonal axial tilt.\n * Albedo Mechanics: The exact fraction of solar radiation reflected back by a surface. Measured on a scale from 0 (total absorption) to 1.0 (perfect reflection).\n * Surface Albedo Baselines: Fresh snow reflects 80\u201390%, open ocean reflects 5\u201310%, and Earth's average planetary albedo sits at ~30%."
-        },
-        {
-            "id": 1782465598492,
-            "title": "meteor1",
-            "chat_id": -1004233184353,
-            "type": "text",
-            "content": "* Albedo Variables: Driven by soil composition, soil moisture, vegetation cover, and urbanization density.\n## V. PLANETARY ENERGY BUDGET (100% IN = 100% OUT)\n * Total Incoming Solar: 100% entering the top of the atmosphere.\n * Planetary Albedo (30% Reflected): The Earth reflects 30% of total insolation back to space (20% off clouds, 6% off the atmosphere, 4% off the surface).\n * Planetary Absorption (70% Captured): The Earth absorbs 70% of incoming energy (51% into land/oceans, 16% into the atmosphere, 3% into clouds).\n * Surface Dissipation (Latent Heat): 23% of absorbed surface energy is carried upward into the atmosphere stored within evaporated water vapor.\n * Surface Dissipation (Atmospheric Capture): 15% is radiated upward as thermal infrared and trapped by atmospheric gases.\n * Surface Dissipation (Thermals): 7% is transferred upward via direct surface conduction and convection (rising air).\n * Surface Dissipation (Direct Space): 6% is radiated directly from the ground through atmospheric windows straight to space.\n * Total Outgoing Equilibrium: 70% of longwave radiation returns to space (64% emitted by the atmosphere/clouds + 6% emitted directly by the surface), perfectly balancing the 70% absorbed.\n## VI. CLIMATE DYNAMICS & OBSERVATION\n * Greenhouse Mechanism: Atmospheric gases (CO\u2082, H\u2082O, CH\u2084) capture outgoing terrestrial infrared and re-radiate it downward, sustaining Earth's habitable baseline temperature.\n * Anthropogenic Forcing: Human-driven accumulation of greenhouse gases forces a net planetary energy imbalance.\n * Feedback Loops: Water vapor acts as a positive feedback (warming generates more vapor, trapping more heat). Clouds act as a negative feedback (warming generates more cloud cover, reflecting more incoming sunlight).\n * Field Instrumentation: Pyranometers measure incoming shortwave solar radiation. Pyrgeometers measure outgoing longwave infrared.\n * Satellite Tracking: Platforms like MODIS and CERES capture real-time planetary radiation budgets."
-        },
-        {
-            "id": 1782465795543,
-            "title": "meteor1",
-            "chat_id": -1004233184353,
-            "type": "text",
-            "content": "# STUDY NOTES: ATMOSPHERIC RADIATION & EARTH'S ENERGY BUDGET\n## I. ELECTROMAGNETIC MECHANICS\n * Radiation Mechanics: Energy transferred via electromagnetic (EM) waves through space or a material medium. It requires no physical medium to propagate.\n * Wave Architecture: Oscillating electric and magnetic fields traveling mutually perpendicular to each other and to the direction of propagation.\n * Dual Nature: Radiation operates simultaneously as continuous transverse waves and discrete particle packets (photons).\n * Spectrum Breakdown: Ultraviolet spans 0.01\u20130.4 \u00b5m, visible light spans 0.4\u20130.7 \u00b5m, and thermal infrared spans 0.7\u2013100 \u00b5m.\n * Inverse Energy Rules: Frequency (f), wavelength (\\lambda), and energy (E) are governed by c = \\lambda f and E = hf. Shorter wavelengths carry higher energy.\n * Solar vs. Terrestrial: The Sun emits high-energy shortwave radiation peaking at ~0.5 \u00b5m (visible light). Earth emits lower-energy longwave radiation peaking at ~10 \u00b5m (thermal infrared).\n## II. FUNDAMENTAL RADIATION LAWS\n * Blackbody Concept: A hypothetical perfect absorber and emitter that radiates energy based strictly on its temperature. The Sun (~6000 K) and Earth (~288 K) approximate blackbodies.\n * Planck\u2019s Law: Governs spectral radiance as a definitive function of wavelength and temperature.\n * Wien\u2019s Displacement Law: Dictates peak emission wavelength. Higher temperatures yield shorter peak wavelengths. Formula: \\lambda_{\\text{max}} = \\frac{2897}{T}.\n * Stefan-Boltzmann Law: Total emitted energy scales rapidly to the fourth power of absolute temperature. Formula: E = \\sigma T^4.\n * Kirchhoff\u2019s Law: High-efficiency absorbers at a specific wavelength act as high-efficiency emitters at that exact same wavelength. Example: CO\u2082 absorbs and re-emits infrared radiation.\n## III. ATMOSPHERIC RADIATIVE PROCESSES\n * Extinction vs. Emission: Atmospheric constituents alter radiation fields. Extinction (scattering + absorption) attenuates radiative intensity, while emission increases it.\n * Absorption Mechanics: Removes radiative energy and converts it to internal heat. Absorptivity (\\alpha) dictates the exact fraction absorbed.\n * Selective Atmospheric Absorbers: O\u2083 selectively absorbs shortwave UV. H\u2082O and CO\u2082 selectively absorb longwave infrared.\n * Emission Mechanics: All physical bodies above absolute zero (0 K) emit radiation. Real surfaces operate below blackbody efficiency, measured by emissivity (\\varepsilon < 1).\n * Scattering Mechanics: Redirection of radiation by atmospheric particles without converting the wave energy into heat.\n| Scattering Type | Particle Size vs. Wavelength | Wavelength Dependence | Observable Result |\n|---|---|---|---|\n| Rayleigh | Very small | Strong (targets short waves) | Blue skies, red sunsets |\n| Mie | Comparable | Weak | Haze, whitish pollution glare |\n| Non-selective | Large | None (equal across spectrum) | White clouds |\n## IV. INSOLATION & ALBEDO\n * Solar Constant: Incoming solar radiation arriving at the top of the atmosphere averages ~1361 W/m\u00b2.\n * Solar Composition: Incoming insolation arrives as 7% UV, 44% visible light, and 49% near-infrared.\n * Insolation Modulators: Surface intensity is dictated by the Solar Zenith Angle (lower sun angle = lower intensity per unit area), latitude, cloud cover, and seasonal axial tilt.\n * Albedo Mechanics: The exact fraction of solar radiation reflected back by a surface. Measured on a scale from 0 (total absorption) to 1.0 (perfect reflection).\n * Surface Albedo Baselines: Fresh snow reflects 80\u201390%, open ocean reflects 5\u201310%, and Earth's average planetary albedo sits at ~30%."
-        },
-        {
-            "id": 1782465796569,
-            "title": "meteor1",
-            "chat_id": -1004233184353,
-            "type": "text",
-            "content": "* Albedo Variables: Driven by soil composition, soil moisture, vegetation cover, and urbanization density.\n## V. PLANETARY ENERGY BUDGET (100% IN = 100% OUT)\n * Total Incoming Solar: 100% entering the top of the atmosphere.\n * Planetary Albedo (30% Reflected): The Earth reflects 30% of total insolation back to space (20% off clouds, 6% off the atmosphere, 4% off the surface).\n * Planetary Absorption (70% Captured): The Earth absorbs 70% of incoming energy (51% into land/oceans, 16% into the atmosphere, 3% into clouds).\n * Surface Dissipation (Latent Heat): 23% of absorbed surface energy is carried upward into the atmosphere stored within evaporated water vapor.\n * Surface Dissipation (Atmospheric Capture): 15% is radiated upward as thermal infrared and trapped by atmospheric gases.\n * Surface Dissipation (Thermals): 7% is transferred upward via direct surface conduction and convection (rising air).\n * Surface Dissipation (Direct Space): 6% is radiated directly from the ground through atmospheric windows straight to space.\n * Total Outgoing Equilibrium: 70% of longwave radiation returns to space (64% emitted by the atmosphere/clouds + 6% emitted directly by the surface), perfectly balancing the 70% absorbed.\n## VI. CLIMATE DYNAMICS & OBSERVATION\n * Greenhouse Mechanism: Atmospheric gases (CO\u2082, H\u2082O, CH\u2084) capture outgoing terrestrial infrared and re-radiate it downward, sustaining Earth's habitable baseline temperature.\n * Anthropogenic Forcing: Human-driven accumulation of greenhouse gases forces a net planetary energy imbalance.\n * Feedback Loops: Water vapor acts as a positive feedback (warming generates more vapor, trapping more heat). Clouds act as a negative feedback (warming generates more cloud cover, reflecting more incoming sunlight).\n * Field Instrumentation: Pyranometers measure incoming shortwave solar radiation. Pyrgeometers measure outgoing longwave infrared.\n * Satellite Tracking: Platforms like MODIS and CERES capture real-time planetary radiation budgets."
-        }
-    ],
-    "schedules": [
-        {
-            "id": 1782465549026,
-            "date": "2026-06-27",
-            "time": "08:00 PM",
-            "task": "Happy",
-            "chat_id": -1004233184353,
-            "notified": false
-        }
-    ],
-    "classes": {},
-    "recurring": [],
-    "specials": []
+  "notes": [
+    {
+      "id": 1782464280608,
+      "title": "time",
+      "chat_id": -1004233184353,
+      "type": "text",
+      "content": "Hello?"
+    },
+    {
+      "id": 1782464298392,
+      "title": "time",
+      "chat_id": -1004233184353,
+      "type": "text",
+      "content": "\ud83d\udc41\ufe0f\ud83d\udc44\ud83d\udc41\ufe0f"
+    },
+    {
+      "id": 1782464299422,
+      "title": "time",
+      "chat_id": -1004233184353,
+      "type": "text",
+      "content": "/donesaving"
+    },
+    {
+      "id": 1782464312441,
+      "title": "time",
+      "chat_id": -1004233184353,
+      "type": "text",
+      "content": "/donesaving"
+    },
+    {
+      "id": 1782464318870,
+      "title": "time",
+      "chat_id": -1004233184353,
+      "type": "text",
+      "content": "/donesaving@LawrenceCortesbot"
+    },
+    {
+      "id": 1782465598190,
+      "title": "meteor1",
+      "chat_id": -1004233184353,
+      "type": "text",
+      "content": "# STUDY NOTES: ATMOSPHERIC RADIATION & EARTH'S ENERGY BUDGET\n## I. ELECTROMAGNETIC MECHANICS\n * Radiation Mechanics: Energy transferred via electromagnetic (EM) waves through space or a material medium. It requires no physical medium to propagate.\n * Wave Architecture: Oscillating electric and magnetic fields traveling mutually perpendicular to each other and to the direction of propagation.\n * Dual Nature: Radiation operates simultaneously as continuous transverse waves and discrete particle packets (photons).\n * Spectrum Breakdown: Ultraviolet spans 0.01\u20130.4 \u00b5m, visible light spans 0.4\u20130.7 \u00b5m, and thermal infrared spans 0.7\u2013100 \u00b5m.\n * Inverse Energy Rules: Frequency (f), wavelength (\\lambda), and energy (E) are governed by c = \\lambda f and E = hf. Shorter wavelengths carry higher energy.\n * Solar vs. Terrestrial: The Sun emits high-energy shortwave radiation peaking at ~0.5 \u00b5m (visible light). Earth emits lower-energy longwave radiation peaking at ~10 \u00b5m (thermal infrared).\n## II. FUNDAMENTAL RADIATION LAWS\n * Blackbody Concept: A hypothetical perfect absorber and emitter that radiates energy based strictly on its temperature. The Sun (~6000 K) and Earth (~288 K) approximate blackbodies.\n * Planck\u2019s Law: Governs spectral radiance as a definitive function of wavelength and temperature.\n * Wien\u2019s Displacement Law: Dictates peak emission wavelength. Higher temperatures yield shorter peak wavelengths. Formula: \\lambda_{\\text{max}} = \\frac{2897}{T}.\n * Stefan-Boltzmann Law: Total emitted energy scales rapidly to the fourth power of absolute temperature. Formula: E = \\sigma T^4.\n * Kirchhoff\u2019s Law: High-efficiency absorbers at a specific wavelength act as high-efficiency emitters at that exact same wavelength. Example: CO\u2082 absorbs and re-emits infrared radiation.\n## III. ATMOSPHERIC RADIATIVE PROCESSES\n * Extinction vs. Emission: Atmospheric constituents alter radiation fields. Extinction (scattering + absorption) attenuates radiative intensity, while emission increases it.\n * Absorption Mechanics: Removes radiative energy and converts it to internal heat. Absorptivity (\\alpha) dictates the exact fraction absorbed.\n * Selective Atmospheric Absorbers: O\u2083 selectively absorbs shortwave UV. H\u2082O and CO\u2082 selectively absorb longwave infrared.\n * Emission Mechanics: All physical bodies above absolute zero (0 K) emit radiation. Real surfaces operate below blackbody efficiency, measured by emissivity (\\varepsilon < 1).\n * Scattering Mechanics: Redirection of radiation by atmospheric particles without converting the wave energy into heat.\n| Scattering Type | Particle Size vs. Wavelength | Wavelength Dependence | Observable Result |\n|---|---|---|---|\n| Rayleigh | Very small | Strong (targets short waves) | Blue skies, red sunsets |\n| Mie | Comparable | Weak | Haze, whitish pollution glare |\n| Non-selective | Large | None (equal across spectrum) | White clouds |\n## IV. INSOLATION & ALBEDO\n * Solar Constant: Incoming solar radiation arriving at the top of the atmosphere averages ~1361 W/m\u00b2.\n * Solar Composition: Incoming insolation arrives as 7% UV, 44% visible light, and 49% near-infrared.\n * Insolation Modulators: Surface intensity is dictated by the Solar Zenith Angle (lower sun angle = lower intensity per unit area), latitude, cloud cover, and seasonal axial tilt.\n * Albedo Mechanics: The exact fraction of solar radiation reflected back by a surface. Measured on a scale from 0 (total absorption) to 1.0 (perfect reflection).\n * Surface Albedo Baselines: Fresh snow reflects 80\u201390%, open ocean reflects 5\u201310%, and Earth's average planetary albedo sits at ~30%."
+    },
+    {
+      "id": 1782465598492,
+      "title": "meteor1",
+      "chat_id": -1004233184353,
+      "type": "text",
+      "content": "* Albedo Variables: Driven by soil composition, soil moisture, vegetation cover, and urbanization density.\n## V. PLANETARY ENERGY BUDGET (100% IN = 100% OUT)\n * Total Incoming Solar: 100% entering the top of the atmosphere.\n * Planetary Albedo (30% Reflected): The Earth reflects 30% of total insolation back to space (20% off clouds, 6% off the atmosphere, 4% off the surface).\n * Planetary Absorption (70% Captured): The Earth absorbs 70% of incoming energy (51% into land/oceans, 16% into the atmosphere, 3% into clouds).\n * Surface Dissipation (Latent Heat): 23% of absorbed surface energy is carried upward into the atmosphere stored within evaporated water vapor.\n * Surface Dissipation (Atmospheric Capture): 15% is radiated upward as thermal infrared and trapped by atmospheric gases.\n * Surface Dissipation (Thermals): 7% is transferred upward via direct surface conduction and convection (rising air).\n * Surface Dissipation (Direct Space): 6% is radiated directly from the ground through atmospheric windows straight to space.\n * Total Outgoing Equilibrium: 70% of longwave radiation returns to space (64% emitted by the atmosphere/clouds + 6% emitted directly by the surface), perfectly balancing the 70% absorbed.\n## VI. CLIMATE DYNAMICS & OBSERVATION\n * Greenhouse Mechanism: Atmospheric gases (CO\u2082, H\u2082O, CH\u2084) capture outgoing terrestrial infrared and re-radiate it downward, sustaining Earth's habitable baseline temperature.\n * Anthropogenic Forcing: Human-driven accumulation of greenhouse gases forces a net planetary energy imbalance.\n * Feedback Loops: Water vapor acts as a positive feedback (warming generates more vapor, trapping more heat). Clouds act as a negative feedback (warming generates more cloud cover, reflecting more incoming sunlight).\n * Field Instrumentation: Pyranometers measure incoming shortwave solar radiation. Pyrgeometers measure outgoing longwave infrared.\n * Satellite Tracking: Platforms like MODIS and CERES capture real-time planetary radiation budgets."
+    },
+    {
+      "id": 1782465795543,
+      "title": "meteor1",
+      "chat_id": -1004233184353,
+      "type": "text",
+      "content": "# STUDY NOTES: ATMOSPHERIC RADIATION & EARTH'S ENERGY BUDGET\n## I. ELECTROMAGNETIC MECHANICS\n * Radiation Mechanics: Energy transferred via electromagnetic (EM) waves through space or a material medium. It requires no physical medium to propagate.\n * Wave Architecture: Oscillating electric and magnetic fields traveling mutually perpendicular to each other and to the direction of propagation.\n * Dual Nature: Radiation operates simultaneously as continuous transverse waves and discrete particle packets (photons).\n * Spectrum Breakdown: Ultraviolet spans 0.01\u20130.4 \u00b5m, visible light spans 0.4\u20130.7 \u00b5m, and thermal infrared spans 0.7\u2013100 \u00b5m.\n * Inverse Energy Rules: Frequency (f), wavelength (\\lambda), and energy (E) are governed by c = \\lambda f and E = hf. Shorter wavelengths carry higher energy.\n * Solar vs. Terrestrial: The Sun emits high-energy shortwave radiation peaking at ~0.5 \u00b5m (visible light). Earth emits lower-energy longwave radiation peaking at ~10 \u00b5m (thermal infrared).\n## II. FUNDAMENTAL RADIATION LAWS\n * Blackbody Concept: A hypothetical perfect absorber and emitter that radiates energy based strictly on its temperature. The Sun (~6000 K) and Earth (~288 K) approximate blackbodies.\n * Planck\u2019s Law: Governs spectral radiance as a definitive function of wavelength and temperature.\n * Wien\u2019s Displacement Law: Dictates peak emission wavelength. Higher temperatures yield shorter peak wavelengths. Formula: \\lambda_{\\text{max}} = \\frac{2897}{T}.\n * Stefan-Boltzmann Law: Total emitted energy scales rapidly to the fourth power of absolute temperature. Formula: E = \\sigma T^4.\n * Kirchhoff\u2019s Law: High-efficiency absorbers at a specific wavelength act as high-efficiency emitters at that exact same wavelength. Example: CO\u2082 absorbs and re-emits infrared radiation.\n## III. ATMOSPHERIC RADIATIVE PROCESSES\n * Extinction vs. Emission: Atmospheric constituents alter radiation fields. Extinction (scattering + absorption) attenuates radiative intensity, while emission increases it.\n * Absorption Mechanics: Removes radiative energy and converts it to internal heat. Absorptivity (\\alpha) dictates the exact fraction absorbed.\n * Selective Atmospheric Absorbers: O\u2083 selectively absorbs shortwave UV. H\u2082O and CO\u2082 selectively absorb longwave infrared.\n * Emission Mechanics: All physical bodies above absolute zero (0 K) emit radiation. Real surfaces operate below blackbody efficiency, measured by emissivity (\\varepsilon < 1).\n * Scattering Mechanics: Redirection of radiation by atmospheric particles without converting the wave energy into heat.\n| Scattering Type | Particle Size vs. Wavelength | Wavelength Dependence | Observable Result |\n|---|---|---|---|\n| Rayleigh | Very small | Strong (targets short waves) | Blue skies, red sunsets |\n| Mie | Comparable | Weak | Haze, whitish pollution glare |\n| Non-selective | Large | None (equal across spectrum) | White clouds |\n## IV. INSOLATION & ALBEDO\n * Solar Constant: Incoming solar radiation arriving at the top of the atmosphere averages ~1361 W/m\u00b2.\n * Solar Composition: Incoming insolation arrives as 7% UV, 44% visible light, and 49% near-infrared.\n * Insolation Modulators: Surface intensity is dictated by the Solar Zenith Angle (lower sun angle = lower intensity per unit area), latitude, cloud cover, and seasonal axial tilt.\n * Albedo Mechanics: The exact fraction of solar radiation reflected back by a surface. Measured on a scale from 0 (total absorption) to 1.0 (perfect reflection).\n * Surface Albedo Baselines: Fresh snow reflects 80\u201390%, open ocean reflects 5\u201310%, and Earth's average planetary albedo sits at ~30%."
+    },
+    {
+      "id": 1782465796569,
+      "title": "meteor1",
+      "chat_id": -1004233184353,
+      "type": "text",
+      "content": "* Albedo Variables: Driven by soil composition, soil moisture, vegetation cover, and urbanization density.\n## V. PLANETARY ENERGY BUDGET (100% IN = 100% OUT)\n * Total Incoming Solar: 100% entering the top of the atmosphere.\n * Planetary Albedo (30% Reflected): The Earth reflects 30% of total insolation back to space (20% off clouds, 6% off the atmosphere, 4% off the surface).\n * Planetary Absorption (70% Captured): The Earth absorbs 70% of incoming energy (51% into land/oceans, 16% into the atmosphere, 3% into clouds).\n * Surface Dissipation (Latent Heat): 23% of absorbed surface energy is carried upward into the atmosphere stored within evaporated water vapor.\n * Surface Dissipation (Atmospheric Capture): 15% is radiated upward as thermal infrared and trapped by atmospheric gases.\n * Surface Dissipation (Thermals): 7% is transferred upward via direct surface conduction and convection (rising air).\n * Surface Dissipation (Direct Space): 6% is radiated directly from the ground through atmospheric windows straight to space.\n * Total Outgoing Equilibrium: 70% of longwave radiation returns to space (64% emitted by the atmosphere/clouds + 6% emitted directly by the surface), perfectly balancing the 70% absorbed.\n## VI. CLIMATE DYNAMICS & OBSERVATION\n * Greenhouse Mechanism: Atmospheric gases (CO\u2082, H\u2082O, CH\u2084) capture outgoing terrestrial infrared and re-radiate it downward, sustaining Earth's habitable baseline temperature.\n * Anthropogenic Forcing: Human-driven accumulation of greenhouse gases forces a net planetary energy imbalance.\n * Feedback Loops: Water vapor acts as a positive feedback (warming generates more vapor, trapping more heat). Clouds act as a negative feedback (warming generates more cloud cover, reflecting more incoming sunlight).\n * Field Instrumentation: Pyranometers measure incoming shortwave solar radiation. Pyrgeometers measure outgoing longwave infrared.\n * Satellite Tracking: Platforms like MODIS and CERES capture real-time planetary radiation budgets."
+    },
+    {
+      "id": 1782473440697,
+      "title": "meteor",
+      "chat_id": -1004233184353,
+      "type": "text",
+      "content": "Electromagnetic Mechanics\nRadiation is the transfer of energy through electromagnetic waves and does not require a physical medium to travel. Electromagnetic waves consist of oscillating electric and magnetic fields that are perpendicular to each other and to the direction of propagation. Radiation exhibits both wave-like and particle-like behavior, with the particle form known as photons.\nUltraviolet radiation spans wavelengths from 0.01 to 0.4 \u00b5m. Visible light spans 0.4 to 0.7 \u00b5m. Thermal infrared radiation spans 0.7 to 100 \u00b5m.\nThe relationships between wavelength, frequency, and energy are described by:\nc = \u03bbf\nE = hf\nShorter wavelengths correspond to higher frequencies and greater energy. The Sun emits primarily high-energy shortwave radiation with peak emission near 0.5 \u00b5m, while Earth emits lower-energy longwave infrared radiation with peak emission near 10 \u00b5m."
+    },
+    {
+      "id": 1782473852037,
+      "title": "meteor",
+      "chat_id": -1004233184353,
+      "type": "text",
+      "content": "II. Fundamental Radiation Laws\nA blackbody is an ideal object that perfectly absorbs and emits radiation based solely on its temperature. The Sun, with an approximate temperature of 6000 K, and Earth, with an approximate temperature of 288 K, behave similarly to blackbodies.\nPlanck's Law describes how the intensity of radiation varies with wavelength and temperature.\nWien's Displacement Law states that the wavelength of maximum emission decreases as temperature increases:\n\u03bbmax = 2897 / T\nStefan-Boltzmann Law states that the total energy emitted by a body is proportional to the fourth power of its absolute temperature:\nE = \u03c3T\u2074\nKirchhoff's Law states that a material that is an efficient absorber at a particular wavelength is also an efficient emitter at that same wavelength. Carbon dioxide is an example because it absorbs and re-emits infrared radiation."
+    },
+    {
+      "id": 1782473897829,
+      "title": "meteor",
+      "chat_id": -1004233184353,
+      "type": "text",
+      "content": "III. Atmospheric Radiative Processes\nExtinction is the reduction of radiation through the combined effects of scattering and absorption. Emission is the release of radiation by matter into its surroundings.\nAbsorption removes radiant energy and converts it into internal heat. The fraction absorbed is described by absorptivity (\u03b1). Ozone selectively absorbs ultraviolet radiation, while water vapor and carbon dioxide selectively absorb longwave infrared radiation.\nEvery object above absolute zero emits radiation. Real materials emit less efficiently than perfect blackbodies, and this efficiency is measured by emissivity (\u03b5), which is generally less than 1.\nScattering changes the direction of radiation without converting it into heat. Rayleigh scattering occurs with particles much smaller than the wavelength of light and strongly affects shorter wavelengths, producing blue skies and red sunsets. Mie scattering occurs with particles comparable in size to the wavelength and produces haze and whitish glare. Non-selective scattering occurs with particles much larger than the wavelength and affects all wavelengths equally, causing clouds to appear white."
+    },
+    {
+      "id": 1782473935884,
+      "title": "meteor",
+      "chat_id": -1004233184353,
+      "type": "text",
+      "content": "IV. Insolation and Albedo\nThe solar constant is approximately 1361 W/m\u00b2 at the top of Earth's atmosphere.\nIncoming solar radiation consists of about 7% ultraviolet, 44% visible light, and 49% near-infrared radiation.\nThe intensity of insolation depends on the solar zenith angle, latitude, cloud cover, and seasonal changes caused by Earth's axial tilt.\nAlbedo is the fraction of incoming solar radiation reflected by a surface and ranges from 0 for complete absorption to 1 for perfect reflection.\nFresh snow reflects approximately 80% to 90% of incoming radiation, open oceans reflect about 5% to 10%, and Earth's average planetary albedo is about 30%.\nAlbedo varies according to soil composition, soil moisture, vegetation cover, and urbanization."
+    }
+  ],
+  "schedules": [
+    {
+      "id": 1782465549026,
+      "date": "2026-06-27",
+      "time": "08:00 PM",
+      "task": "Happy",
+      "chat_id": -1004233184353,
+      "notified": false,
+      "warned_24h": true
+    }
+  ],
+  "classes": {},
+  "recurring": [],
+  "specials": []
 }
