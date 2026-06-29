@@ -3,7 +3,7 @@ study.py — Lightweight study system for CathBot
 Gemini: extraction only. All quizzes come from stored JSON.
 """
 
-import os, json, random, re, requests, threading, time
+import os, json, random, re, threading, time
 from typing import Any, Optional, Callable
 
 STUDY_DIR = "study_data"
@@ -24,7 +24,6 @@ _get_db: Optional[Callable[[], dict]] = None  # optional live-DB getter, set via
 # Models to try, in order. First is fast/cheap; we fall back if it errors or
 # returns something unparsable (e.g. quota hit, 5xx, empty response).
 _EXTRACT_MODELS = ["gemini-2.0-flash", "gemini-2.5-flash"]
-_OCR_MODELS     = ["gemini-2.0-flash", "gemini-2.5-flash"]
 
 # Chunk size for the knowledge-extraction prompt. Notes longer than this get
 # split into multiple chunks and extracted separately, then merged, instead
@@ -140,20 +139,6 @@ def _call_gemini(models, **kwargs):
     if last_err:
         raise last_err
     raise RuntimeError("All models returned empty responses")
-    """Try each model in order until one returns a usable response."""
-    last_err = None
-    for model in models:
-        try:
-            resp = _ai.models.generate_content(model=model, **kwargs)
-            if resp and (resp.text or "").strip():
-                return resp, model
-        except Exception as e:
-            last_err = e
-            print(f"[study] model {model} failed: {e}")
-            continue
-    if last_err:
-        raise last_err
-    raise RuntimeError("All models returned empty responses")
 
 def _chunk_text(text: str, size: int) -> list:
     """Split on paragraph boundaries where possible, never silently dropping tail."""
@@ -181,7 +166,7 @@ def _load_db():
         return json.load(f)
 
 def extract_knowledge(title: str, chat_id: int):
-    """OCR uploaded photos, extract structured knowledge, save to study_data/."""
+    """Extract structured knowledge from text notes, save to study_data/."""
     if _bot is None or _ai is None:
         print("[study] init_study() not called")
         return
@@ -204,49 +189,13 @@ def extract_knowledge(title: str, chat_id: int):
         c = n.get("content", "").strip()
         return bool(c) and not c.startswith("/")
 
-    photo_notes = [n for n in notes if n.get("type") == "photo"]
     text_notes  = [n for n in notes if n.get("type") == "text" and _is_real_text(n)]
 
-    total = len(photo_notes) + len(text_notes)
-    done = 0
-    combined_text = ""
-
-    if total > 1:
-        _bot.send_message(chat_id, f"📚 Processing {total} note(s) for '{title}'… (0/{total})")
-
-    for note in photo_notes:
-        try:
-            fi  = _bot.get_file(note["file_id"])
-            url = f"https://api.telegram.org/file/bot{_bot.token}/{fi.file_path}"
-            img = requests.get(url, timeout=15).content
-            from google.genai import types as gt
-            resp, used_model = _call_gemini(
-                _OCR_MODELS,
-                contents=[
-                    gt.Part.from_bytes(data=img, mime_type="image/jpeg"),
-                    gt.Part.from_text(
-                        text="Extract all text from this image exactly as written. "
-                             "Return only the raw text, no formatting."
-                    )
-                ]
-            )
-            combined_text += "\n" + (resp.text or "")
-        except Exception as e:
-            print(f"[study] OCR failed for note {note.get('id')}: {e}")
-        finally:
-            done += 1
-            if total > 1:
-                _bot.send_message(chat_id, f"📚 OCR progress: {done}/{total}")
-
-    for note in text_notes:
-        combined_text += "\n" + note.get("content", "")
-        done += 1
-        if total > 1 and photo_notes:
-            _bot.send_message(chat_id, f"📚 Processing: {done}/{total}")
-
-    if not combined_text.strip():
-        _bot.send_message(chat_id, f"⚠️ [Study] No text could be extracted from '{title}'.")
+    if not text_notes:
+        _bot.send_message(chat_id, f"⚠️ [Study] No text notes found for '{title}'. Photos are not processed.")
         return
+
+    combined_text = "\n".join(n.get("content", "") for n in text_notes)
 
     chunks = _chunk_text(combined_text, _CHUNK_CHARS)
     n_chunks = len(chunks)
@@ -607,7 +556,7 @@ def cmd_studydocs(message):
         _bot.reply_to(
             message,
             "📚 No study documents yet\\.\n"
-            "Upload notes with /upload \\[title\\], then /donesaving\\.",
+            "Upload notes with /upload \\[title\\], then /donesaving or /note\\.",
             parse_mode="MarkdownV2"
         )
         return

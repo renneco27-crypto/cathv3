@@ -668,7 +668,7 @@ def handle_upload(message):
     if len(args) < 2: bot.reply_to(message, "Usage: /upload [title]"); return
     title = args[1].lower().strip()
     set_pending(message.chat.id, title)
-    bot.reply_to(message, f"📎 Ready — send photos or text for *'{title}'*, then /donesaving.\nSession expires in 5 minutes.", parse_mode="Markdown")
+    bot.reply_to(message, f"📎 Ready — send photos or text for *'{title}'*, then /donesaving (AI extraction) or /note (save only).\nSession expires in 5 minutes.", parse_mode="Markdown")
 
 # --- /donesaving ---
 @bot.message_handler(commands=['donesaving'])
@@ -683,6 +683,21 @@ def handle_done_saving(message):
         return
     bot.reply_to(message, f"✅ Saved {count} item(s) under *'{title}'*.\n⏳ Extracting knowledge… I'll notify you when done.", parse_mode="Markdown")
     threading.Thread(target=extract_knowledge, args=(title, chat_id), daemon=True).start()
+
+# --- /note ---
+@bot.message_handler(commands=['note'])
+def handle_note(message):
+    chat_id = message.chat.id
+    p = get_pending(chat_id)
+    if not p:
+        bot.reply_to(message, "⚠️ No active upload session. /upload [title] first.")
+        return
+    count, title = len(p["collected"]), p["title"]
+    clear_pending(chat_id)
+    if count == 0:
+        bot.reply_to(message, f"⚠️ No photos or notes were received for '{title}'.\nStart again with /upload {title}")
+        return
+    bot.reply_to(message, f"✅ Saved {count} item(s) under *'{title}'*\\. Use /studydocs to see all docs\\.", parse_mode="MarkdownV2")
 
 # --- /deleteupload ---
 @bot.message_handler(commands=['deleteupload'])
@@ -973,7 +988,7 @@ def show_help(message):
         "• -birthday [name] [date]\n"
         "• /specials • /editspecial id:xxx • /delspecial id:xxx\n\n"
         "UPLOADS\n"
-        "• /upload [title] → send photos/text → /donesaving\n"
+        "• /upload [title] → send photos/text → /donesaving or /note\n"
         "• /uploads • /deleteupload [keyword | id:xxx | all]\n"
         "• show me [title] — retrieve\n\n"
         "STUDY\n"
