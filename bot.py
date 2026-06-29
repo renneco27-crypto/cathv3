@@ -633,10 +633,30 @@ def handle_photo(message):
             _pending_uploads[chat_id]["collected"].append(rec["id"])
             _pending_uploads[chat_id]["expires"] = time.time() + PENDING_TIMEOUT
     count = len(_pending_uploads.get(chat_id, {}).get("collected", []))
-    bot.reply_to(message, f"✅ Photo {count} saved under '{p['title']}'. Send more or /donesaving.")
+    bot.reply_to(message, f"✅ Photo {count} saved under '{p['title']}'. Send more, /donesaving, or /note.")
+
+# --- /note (priority handler — must come BEFORE handle_text_note) ---
+@bot.message_handler(
+    func=lambda m: (
+        m.text is not None
+        and m.text.strip().lower().startswith('/note')
+    ),
+    content_types=['text']
+)
+def handle_note(message):
+    chat_id = message.chat.id
+    p = get_pending(chat_id)
+    if not p:
+        bot.reply_to(message, "⚠️ No active upload session. /upload [title] first.")
+        return
+    count, title = len(p["collected"]), p["title"]
+    clear_pending(chat_id)
+    if count == 0:
+        bot.reply_to(message, f"⚠️ No photos or notes were received for '{title}'.\nStart again with /upload {title}")
+        return
+    bot.reply_to(message, f"✅ Saved {count} item(s) under *'{title}'*\\. Use /studydocs to see all docs\\.", parse_mode="MarkdownV2")
 
 # --- Text note handler during upload session ---
-# This MUST come before smart_question and handle_show
 @bot.message_handler(
     func=lambda m: (
         m.text is not None
@@ -659,7 +679,7 @@ def handle_text_note(message):
             _pending_uploads[chat_id]["collected"].append(rec["id"])
             _pending_uploads[chat_id]["expires"] = time.time() + PENDING_TIMEOUT
     count = len(_pending_uploads.get(chat_id, {}).get("collected", []))
-    bot.reply_to(message, f"✅ Note {count} saved under '{p['title']}'. Send more or /donesaving.")
+    bot.reply_to(message, f"✅ Note {count} saved under '{p['title']}'. Send more, /donesaving, or /note.")
 
 # --- /upload ---
 @bot.message_handler(commands=['upload'])
@@ -683,21 +703,6 @@ def handle_done_saving(message):
         return
     bot.reply_to(message, f"✅ Saved {count} item(s) under *'{title}'*.\n⏳ Extracting knowledge… I'll notify you when done.", parse_mode="Markdown")
     threading.Thread(target=extract_knowledge, args=(title, chat_id), daemon=True).start()
-
-# --- /note ---
-@bot.message_handler(commands=['note'])
-def handle_note(message):
-    chat_id = message.chat.id
-    p = get_pending(chat_id)
-    if not p:
-        bot.reply_to(message, "⚠️ No active upload session. /upload [title] first.")
-        return
-    count, title = len(p["collected"]), p["title"]
-    clear_pending(chat_id)
-    if count == 0:
-        bot.reply_to(message, f"⚠️ No photos or notes were received for '{title}'.\nStart again with /upload {title}")
-        return
-    bot.reply_to(message, f"✅ Saved {count} item(s) under *'{title}'*\\. Use /studydocs to see all docs\\.", parse_mode="MarkdownV2")
 
 # --- /deleteupload ---
 @bot.message_handler(commands=['deleteupload'])
